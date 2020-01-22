@@ -12,8 +12,21 @@
 
 \section{Introduction}
 
-\paragraph{Outline}
-The problem domain is P2P messaging. This has some issues when it comes to scalability, spam reistance, and offline usage. Here we introduce our contribution to it.
+Lets write a bad draft quickly.
+
+Whisper is a peer-to-peer messaging protocol that was created as part of the Ethereum project. It was meant as one of the three legs of the world computer, the other two being compute/consensus (Ethereum itself) and storage (Swarm). [ref]
+
+However, it hasn't seen a lot of uptake. One project that used this is the Status mobile app [ref]. There are many fundamental issues with Whisper, especially when it comes to running on resource restricted devices.
+
+Our contribution is the Waku protocol, which is a fork of Whisper that solves some of the key problems seen with the Whisper protocol when running on resource restricted devices such as mobile phones with limited data plan. These specific problem areas and contributions can be summarized as follows.
+
+A resource restricted device is restricted in several ways. Here we list the most relevant for mobilephones, with a brief summary of how we adress them:
+
+1. Mostly-offline: Users on mobilephones are usually mostly-offline, and have limited connection windows. This is addressed be the use of an offline inboxing protocol.
+
+2. Limited bandwidth: Users on mobilephones usually have a limited data plan, and Whisper scales extremely poorly by default. We address this in various ways.
+
+3. Limited battery: Whisper uses PoW as a spam mechanism, which works poorly on mobilephones. We address anti-spam in other ways. Additionally, we limit connectivity in a light node fashion.
 
 The main "ping" or idea is making Whisper run on resource restricted device. That's the game.
 
